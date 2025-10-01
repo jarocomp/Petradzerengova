@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responzívna stránka s Bootstrap 5</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{% static 'css/blog.css' %}" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    Moja stránka
+      <a href="{% url 'post_new' %}" class="top-menu">
+                   <img src="{% static 'images/add.png' %}" alt="add"   width="30", hight="30">
+                </a>
+  </header>
+
+  <main class="container-fluid flex-grow-1">
+    <div class="row justify-content-center">
+      <!-- Ľavý panel (užší) -->
+      <aside class="col-12 col-md sidebar sidebar-narrow">
+        Ľavý panel
+      </aside>
+
+      <!-- Obsah (pôvodná šírka) -->
+      <section class="col-12 col-md-6 content">
+     {% block content %}
+   
+        {% endblock %}
+      </section>
+
+      <!-- Pravý panel (užší) -->
+      <aside class="col-12 col-md sidebar sidebar-narrow">
+        Pravý panel
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Moja stránka
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
