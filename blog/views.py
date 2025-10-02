@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from blog.models import Post
+from django.shortcuts import render, redirect, get_object_or_404
+from blog.models import Post, PostImage
 from django.utils import timezone
 from .forms import PostForm
 
@@ -18,10 +18,16 @@ def post_new(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
             post.published_date = timezone.now()
+            post.author = request.user  # ak máš author field
             post.save()
+
+            # Uloží všetky obrázky
+            for f in request.FILES.getlist('images'):
+                PostImage.objects.create(post=post, image=f)
+
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
+
     return render(request, 'blog/post_edit.html', {'form': form})

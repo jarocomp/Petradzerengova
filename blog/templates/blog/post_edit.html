@@ -2,8 +2,23 @@
 
 {% block content %}
     <h2>New post</h2>
-    <form method="POST" class="post-form">{% csrf_token %}
+ <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!-- Text -->
+    <fieldset>
+        <legend>Text príspevku</legend>
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-secondary">Save</button>
-    </form>
+    </fieldset>
+
+    <!-- Obrázky -->
+    <fieldset>
+        <legend>Obrázky</legend>
+        <input type="file" name="images" multiple>
+        <p>Vyber viac obrázkov naraz.</p>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">Uložiť</button>
+</form>
+
 {% endblock %}

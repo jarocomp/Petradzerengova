@@ -1,13 +1,11 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <article class="post">
-        {% if post.published_date %}
-            <time class="date">
-                {{ post.published_date }}
-            </time>
-        {% endif %}
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </article>
+  <h2>{{ post.title }}</h2>
+<p>{{ post.text|linebreaksbr }}</p>
+
+{% for img in post.images.all %}
+    <img src="{{ img.image.url }}" class="img-fluid" style="max-width:200px; border:1px solid #ccc; padding:2px;">
+{% endfor %}
+
 {% endblock %}
