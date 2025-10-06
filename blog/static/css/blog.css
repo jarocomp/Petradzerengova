@@ -1,71 +1,50 @@
-body {
-  background-color: #ffffff; /* celé pozadie stránky biele */
-  margin: 0;
-  font-family: Arial, sans-serif;
+.site {
+  width: 60%;          /* 80 % šírky stránky */
+  margin: 0 auto;      /* centrovanie */
+  min-height: 100vh;   /* aspoň výška okna */
+  display: flex;
+  flex-direction: column;
 }
 
-header {
-  background-color: #add8e6;
-  padding: 20px;
+/* Header a footer */
+.header{
+  background: #f5276c;
+  color: white;
   text-align: center;
-  font-size: 24px;
-  font-weight: bold;
+  padding: 15px;
+
 }
 
+.footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+ 
+}
+
+/* Hlavný obsah */
+.main {
+  flex: 1;
+  display: flex;
+  /* gap: 15px; medzera medzi panelmi */
+  padding: 15px 0;
+}
+
+/* Bočné panely */
 .sidebar {
-  background-color: #f0f0f0;
+  background: #eaeaea;
   padding: 15px;
+  flex: 1;            /* každý panel zaberie 1 diel */
 }
 
+/* Obsah v strede */
 .content {
-  background-color: #ffffff;
+  background: #fff;
   padding: 15px;
+  flex: 7;            /* stredný obsah väčší */
 }
 
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 15px;
-}
-
-
-
-.page-header {
-    background-color: #C25100;
-    margin-top: 0;
-    margin-bottom: 40px;
-    padding: 20px 20px 20px 40px;
-}
-
-.page-header h1,
-.page-header h1 a,
-.page-header h1 a:visited,
-.page-header h1 a:active {
-    color: #ffffff;
-    font-size: 36pt;
-    text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-h4 {
-    font-family: 'Lobster', cursive;
-}
-
-.date {
-    color: #828282;
-}
-
-.save {
-    float: right;
-}
-
-.post-form textarea,
-.post-form input {
-    width: 100%;
-}
 
 .top-menu,
 .top-menu:hover,
@@ -76,28 +55,23 @@ h4 {
     margin-right: 20px;
 }
 
-.post {
-    margin-bottom: 70px;
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-.post h2 a,
-.post h2 a:visited {
-    color: #000000;
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
-.post > .date,
-.post > .actions {
-    float: right;
-}
 
-.btn-secondary,
-.btn-secondary:visited {
-    color: #C25100;
-    background: none;
-    border-color: #C25100;
-}
-
-.btn-secondary:hover {
-    color: #FFFFFF;
-    background-color: #C25100;
+/* Responzívne správanie */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column; /* pod seba na menších zariadeniach */
+  }
 }
