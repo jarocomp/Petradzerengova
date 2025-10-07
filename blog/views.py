@@ -31,3 +31,6 @@ def post_new(request):
         form = PostForm()
 
     return render(request, 'blog/post_edit.html', {'form': form})
+
+def about_author(request):
+    return render(request, 'blog/about_author.html')

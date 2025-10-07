@@ -60,6 +60,15 @@ h1 {
   font-size: 48px;
   font-weight: 700;
   line-height: 1.2;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
 }
 
 p {
@@ -74,4 +83,11 @@ p {
   .main {
     flex-direction: column; /* pod seba na menších zariadeniach */
   }
+}
+
+/* Odstránenie podčiarknutia pre odkazy */
+a {
+    text-decoration: none;
+    color: #1a73e8; /* pekná modrá farba pre odkaz */
+    font-weight: bold; /* tučný text */
 }
